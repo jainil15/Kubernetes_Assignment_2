@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: app-replicaset
+spec:
+  replicas: 3
+  selector:
+    app: app-replicaset
+  template:
+    metadata:
+      name: app-replicaset
+      labels:
+        app: app-replicaset
+    spec:
+      containers:
+        - name: nginx-contiainer
+          image: nginx:latest
+          ports:
+            - containerPort: 80
